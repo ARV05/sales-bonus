@@ -57,7 +57,7 @@ function analyzeSalesData(data, options) {
         
         throw new Error('Некорректные входные данные');
     }
-    
+
     const { calculateRevenue, calculateBonus } = options;
     
     // Проверка функций
@@ -66,6 +66,10 @@ function analyzeSalesData(data, options) {
     }
     if (typeof calculateBonus !== 'function') {
         throw new Error('Функция расчёта бонуса не предоставлена');
+    }
+
+    if (data.purchase_records.length === 0) {
+        throw new Error('Массив purchase_records не должен быть пустым');
     }
     
     // Подготовка статистики продавцов
