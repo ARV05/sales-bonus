@@ -44,10 +44,15 @@ function calculateBonusByProfit(index, total, seller) {
 function analyzeSalesData(data, options) {
     // Проверка входных данных
     if (!data || 
+        !data.sellers || 
         !Array.isArray(data.sellers) || 
         data.sellers.length === 0 ||
+        
+        !data.products || 
         !Array.isArray(data.products) || 
         data.products.length === 0 ||
+        
+        !data.purchase_records || 
         !Array.isArray(data.purchase_records)) {
         
         throw new Error('Некорректные входные данные');
